@@ -28,3 +28,6 @@ eDisGo.egg-info/
 .vscode/settings.json
 
 *TOEP_TOKEN.*
+
+# exclude external test datasets
+tests/data/*
