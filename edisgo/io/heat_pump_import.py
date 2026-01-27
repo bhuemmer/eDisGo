@@ -330,7 +330,10 @@ def oedb(edisgo_object, scenario, engine, import_types=None):
         engine, ["egon_etrago_bus", "egon_etrago_link"], "grid"
     )
 
-    building_ids = edisgo_object.topology.loads_df.building_id.unique()
+    building_ids = (edisgo_object.topology.loads_df["building_id"]
+                    .dropna()
+                    .unique()
+                    )
     mv_grid_geom_srid = edisgo_object.topology.grid_district["srid"]
 
     if import_types is None:
